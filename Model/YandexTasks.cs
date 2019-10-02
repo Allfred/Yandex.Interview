@@ -58,7 +58,9 @@ namespace Yandex.Interview.Model
             Console.WriteLine(max);
 
         }
-
+        /// <summary>
+        /// Удаление дубликатов
+        /// </summary>
         public static void TaskC()
         {
             Int32.TryParse(Console.ReadLine(), out var count);
@@ -85,6 +87,55 @@ namespace Yandex.Interview.Model
 
                 Console.WriteLine(list[j]);
             }
+        }
+
+        /// <summary>
+        /// Генерация скобочных последовательностей
+        /// </summary>
+        public static void TaskD()
+        {
+
+        }
+
+        /// <summary>
+        /// Анаграммы
+        /// </summary>
+        public static void TaskE()
+        {
+            string str1 = Console.ReadLine();
+            string str2 = Console.ReadLine();
+
+            if (str1 == null && str2 == null)
+            {
+                Console.WriteLine("1");
+                return;
+
+            }
+            if (str1 == null && str2 != null)
+            {
+                Console.WriteLine("0");
+                return;
+            }
+            if (str1 != null && str2 == null)
+            {
+                Console.WriteLine("0");
+                return;
+            }
+            if (str1.Length != str2.Length)
+            {
+                Console.WriteLine("0");
+                return;
+            }
+            str1 = String.Concat(str1.OrderBy(s => s));
+            str2 = String.Concat(str2.OrderBy(s => s));
+
+            if (str1 == str2)
+            {
+                Console.WriteLine("1");
+                return;
+            }
+            Console.WriteLine("0");
+
         }
     }
 }
