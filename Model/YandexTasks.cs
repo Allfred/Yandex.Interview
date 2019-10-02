@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -136,6 +137,39 @@ namespace Yandex.Interview.Model
             }
             Console.WriteLine("0");
 
+        }
+
+        /// <summary>
+        /// Слияние k сортированных списков
+        /// </summary>
+        public static void TaskF()
+        {
+            short[] digitsCount = new short[101];
+            short k = Convert.ToInt16(Console.ReadLine());
+
+            string[] values;
+            for (short i = 0; i < k; i++)
+            {
+                values = Console.ReadLine().Split(' ');
+
+                for (short j = 1; j < values.Length; j++)
+                {
+                    digitsCount[Convert.ToByte(values[j])]++;
+                }
+
+                GC.Collect();
+            }
+
+            using (StreamWriter sw = new StreamWriter("output.txt"))
+            {
+                for (short i = 0; i < digitsCount.Length; i++)
+                {
+                    for (short j = 0; j < digitsCount[i]; j++)
+                    {
+                        sw.Write(i + " ");
+                    }
+                }
+            }
         }
     }
 }
