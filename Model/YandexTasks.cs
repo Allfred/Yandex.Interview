@@ -28,5 +28,35 @@ namespace Yandex.Interview.Model
             }
             Console.WriteLine(count);
         }
+
+        /// <summary>
+        /// Последовательно идущие единицы
+        /// </summary>
+        public static void TaskB()
+        {
+            int count;
+            Int32.TryParse(Console.ReadLine(), out count);
+
+            int max = 0;
+            int current = 0;
+
+            for (int i = 0; i < count; i++)
+            {
+                Int32.TryParse(Console.ReadLine(), out var number);
+
+                if (number == 1)
+                {
+                    current++;
+                    max = max < current ? current : max;
+                }
+                else
+                {
+                    current = 0;
+                }
+            }
+
+            Console.WriteLine(max);
+
+        }
     }
 }
