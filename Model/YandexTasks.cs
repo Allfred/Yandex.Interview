@@ -58,5 +58,33 @@ namespace Yandex.Interview.Model
             Console.WriteLine(max);
 
         }
+
+        public static void TaskC()
+        {
+            Int32.TryParse(Console.ReadLine(), out var count);
+            var list = new List<int>(count);
+            int val = -2;
+            int number = -1;
+            for (int i = 0; i < count; i++)
+            {
+
+                if (Int32.TryParse(Console.ReadLine(), out number))
+                {
+                    if (i == 0 || val != number)
+                    {
+                        list.Add(number);
+                    }
+
+                    val = number;
+
+                }
+
+            }
+            for (int j = 0; j < list.Count; j++)
+            {
+
+                Console.WriteLine(list[j]);
+            }
+        }
     }
 }
